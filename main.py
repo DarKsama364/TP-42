@@ -41,17 +41,21 @@ class Mouton:
             self.energie = self.energie - 1
 
     def deplacement(self):
-        self.position[0] = self.position[0] + random.randint(-1, 1)
-        if self.position[0] < 0:
-            self.position[0] = 50
-        elif self.position[0] > dimension:
-            self.position[0] = 0
+        position = list(self.position)
+        position[0] = position[0] + random.randint(-1, 1)
+        if position[0] < 0:
+            position[0] = 50
+        elif position[0] > dimension:
+            position[0] = 0
 
-        self.position[1] = self.position[1] + random.randint(-1, 1)
-        if self.position[1] < 0:
-            self.position[1] = 50
-        elif self.position[1] > dimension:
-            self.position[1] = 0
+        position[1] = position[1] + random.randint(-1, 1)
+        if position[1] < 0:
+            position[1] = 50
+        elif position[1] > dimension:
+            position[1] = 0
+
+        self.position = tuple(position)
+        return self.position
 
     def bebe(self, pere):
         x = random.randint(0,100)
@@ -68,3 +72,9 @@ class Simulation:
 
     def resultats_herbe(self):
         return self.monde.nbHerbe()
+
+    def resultats_moutons(self):
+
+
+    def simMouton(self):
+        
